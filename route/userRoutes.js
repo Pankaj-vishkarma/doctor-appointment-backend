@@ -1,0 +1,17 @@
+const express=require('express')
+const userRoute=express.Router()
+const {LoginCtrl,RegisterCtrl, userData, Logout, applyDoctor, getAllNotification, DeleteAllNotification, getAllDoctor, bookAppointment, checkAvailability, userAppointment}=require('../controller/userController.js')
+const auth = require('../middleware/Authmidle.js')
+
+userRoute.post('/login',LoginCtrl)
+userRoute.post('/register',RegisterCtrl)
+userRoute.get('/getdata',auth,userData)
+userRoute.get('/logout',auth,Logout)
+userRoute.post('/applydoctor',auth,applyDoctor)
+userRoute.post('/getallnotification',auth,getAllNotification)
+userRoute.post('/deleteallnotification',auth,DeleteAllNotification)
+userRoute.get('/getalldoctor',auth,getAllDoctor)
+userRoute.post('/book-appointment',auth,bookAppointment)
+userRoute.post('/check-availability',auth,checkAvailability)
+userRoute.post('/user-appointment',auth,userAppointment)
+module.exports=userRoute
