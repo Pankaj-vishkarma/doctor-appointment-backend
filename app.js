@@ -11,7 +11,7 @@ const doctorRoute=require('./route/doctorRoute.js')
 database()
 
 app.use(cors({
-    origin:['http://localhost:5173'],
+    origin:['https://oppointment-doctor-app.netlify.app'],
     methods:['GET','POST'],
     credentials:true
 }))
